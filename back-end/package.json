@@ -1,0 +1,29 @@
+{
+  "name": "icc-oocsi-bridge",
+  "version": "0.0.1",
+  "description": "Back-End for ICC to connect the prototype to OOCSI.",
+  "main": "oocsi-bridge.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ScrambledFox/icc.git"
+  },
+  "keywords": [
+    "iot",
+    "bridge",
+    "oocsi"
+  ],
+  "author": "Joris Lodewijks",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ScrambledFox/icc/issues"
+  },
+  "homepage": "https://github.com/ScrambledFox/icc#readme",
+  "dependencies": {
+    "node": "^17.2.0",
+    "oocsi": "0.0.3",
+    "ws": "^8.3.0"
+  }
+}
