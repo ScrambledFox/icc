@@ -65,5 +65,9 @@ public class CameraControl : MonoBehaviour {
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRotation, rotationSmoothing * Time.deltaTime);
     }
 
+    public void ResetOrbitPosition () {
+        this.orbitPosition = Vector2.zero;
+    }
+
 
 }

@@ -8,119 +8,108 @@ public class MainScreen : MonoBehaviour {
     public static MainScreen INSTANCE = null;
 
     public Transform modulePrefab;
-    public ModulePosition[,] modulePositions;
-    public Dictionary<ModulePosition, Module> modules = new Dictionary<ModulePosition, Module>();
+    public ModulePosition[,] grid;
+    public Dictionary<ModulePosition, Module> modulesDictionary = new Dictionary<ModulePosition, Module>();
+    public GameObject[] ConnectionPositions;
+    public Connection[] Connections;
 
     public Vector2Int gridSize = new Vector2Int(11, 12);
 
     private void Awake () {
         INSTANCE = this;
-
-        modulePositions = new ModulePosition[gridSize.x, gridSize.y];
+        
+        grid = new ModulePosition[gridSize.x, gridSize.y];
 
         for (int y = 0; y < gridSize.y; y++) {
             for (int x = 0; x < gridSize.x; x++) {
-                Vector3 pos = new Vector3(x * 2f, y * 2f, 0) - new Vector3(gridSize.x, gridSize.y, 0);
-                bool locked = true;
+                Vector3 pos = new Vector3(x * 2f + 1, y * 2f + 1, 0) - new Vector3(gridSize.x, gridSize.y, 0);
+                ModulePosition.SpecialState state = ModulePosition.SpecialState.NONE;
+                Connection connection = null;
 
-                if ((Mathf.Abs(pos.x) == 5 && Mathf.Abs(pos.y) < 4) || (Mathf.Abs(pos.y) == 4 && Mathf.Abs(pos.x) < 5))
-                    locked = false;
+                if ((Mathf.Abs(pos.x) == 5 && Mathf.Abs(pos.y) < 4) || (Mathf.Abs(pos.y) == 4 && Mathf.Abs(pos.x) < 5)) {
+                    state = ModulePosition.SpecialState.ALWAYS_UNLOCKED;
+                    connection = GetClosestConnectionGraphic( pos );
+                } else if (Mathf.Abs(pos.x) < 5 && Mathf.Abs(pos.y) < 4) {
+                    state = ModulePosition.SpecialState.ALWAYS_LOCKED;
+                }
 
-                modulePositions[x, y] = new ModulePosition(new Vector2Int(x, y), pos, locked);
+                grid[x, y] = new ModulePosition(new Vector2Int(x, y), pos, connection, state);
             }
         }
     }
 
-    public void LockModule ( Module module, ModulePosition pos ) {
-        pos.hasModule = true;
-        
-        module.isLocked = true;
-        module.pos = pos;
-
-        if (!modules.ContainsKey(pos))
-            modules.Add(pos, module);
-        else {
-            modules[pos] = module;
+    private Connection GetClosestConnectionGraphic ( Vector3 pos ) {
+        int closestIndex = -1;
+        float closestDistance = float.MaxValue;
+        for (int i = 0; i < ConnectionPositions.Length; i++) {
+            float distance = Vector3.Distance(pos, ConnectionPositions[i].transform.position);
+            if ( distance < closestDistance ) {
+                closestDistance = distance;
+                closestIndex = i;
+            }
         }
+        if (closestIndex == -1) return null;
+        return this.Connections[closestIndex];
     }
 
-    public void UnlockModule ( Module module ) {
-        if (modules.ContainsKey(module.pos)) {
-            module.pos.hasModule = false;
-            modules.Remove(module.pos);
+    public void CheckModules ( bool connected = false ) {
+        Debug.Log("Checking module connections...");
+
+        // Update positions.
+        for (int y = 0; y < gridSize.y; y++) {
+            for (int x = 0; x < gridSize.x; x++) {
+
+                // If current gridpos has a neighbour with an active module...
+                if (grid[x, y].HasNeighbourWithModule() && grid[x, y].HasConnectionToMainScreen()) {
+                    // unlock the position.
+                    grid[x, y].Unlock();
+                } else {
+                    // If we don't have a neighbour with an active module.
+                    // Check if we have a module here and disconnect it.
+                    if (grid[x, y].HasModule) { 
+                        modulesDictionary[grid[x, y]].Disconnect();
+
+                    // Lock the gridpos.
+                    } else {
+                        grid[x, y].Lock();
+                    }
+                }
+            }
         }
 
-        module.isLocked = false;
-        module.pos = null;
-    }
-
-    //public void UnlockNeighbours ( ModulePosition modPos ) {
-    //    modulePositions[modPos.gridPos.x - 1, modPos.gridPos.y].locked = false;
-    //    modulePositions[modPos.gridPos.x + 1, modPos.gridPos.y].locked = false;
-    //    modulePositions[modPos.gridPos.x, modPos.gridPos.y - 1].locked = false;
-    //    modulePositions[modPos.gridPos.x, modPos.gridPos.y + 1].locked = false;
-
-    //    foreach (var pos in modulePositions) {
-    //        if (Mathf.Abs(pos.position.x) < 5f && Mathf.Abs(pos.position.y) < 4f) {
-    //            pos.locked = true;
-    //        }
-    //    }
-    //}
-
-    //public void LockNeighbours ( ModulePosition modPos ) {
-    //    modulePositions[modPos.gridPos.x - 1, modPos.gridPos.y].locked = true;
-    //    modulePositions[modPos.gridPos.x + 1, modPos.gridPos.y].locked = true;
-    //    modulePositions[modPos.gridPos.x, modPos.gridPos.y - 1].locked = true;
-    //    modulePositions[modPos.gridPos.x, modPos.gridPos.y + 1].locked = true;
-
-    //    foreach (var pos in modulePositions) {
-    //        if ((Mathf.Abs(pos.position.x) == 5 && Mathf.Abs(pos.position.y) < 4) || (Mathf.Abs(pos.position.y) == 4 && Mathf.Abs(pos.position.x) < 5))
-    //            pos.locked = false;
-    //    }
-
-    //}
-
-    public void CheckNeighbours () {
-        Debug.Log("Updating neighbours...");
+        if (connected) {
+            // Update module connections..
+            Module[] mods = GameObject.FindObjectsOfType<Module>();
+            foreach (var mod in mods) {
+                ModulePosition pos = mod.CanConnectAny();
+                if (pos != null) mod.Connect(pos);
+            }
+        }
     }
 
     private void OnDrawGizmos () {
-        if (modulePositions == null) return;
+        if (grid == null) return;
 
-        foreach (var modulePos in modulePositions) {
+        foreach (var modulePos in grid) {
             if (modulePos == null) continue;
 
-            if (modulePos.locked) {
+            if (modulePos.Locked) {
                 Gizmos.color = Color.red;
-            } else if (modulePos.hasModule) {
+            } else if (modulePos.HasModule) {
                 Gizmos.color = Color.yellow;
             } else {
                 Gizmos.color = Color.green;
             }
 
-            Gizmos.DrawWireCube(modulePos.position, new Vector3(1.95f, 1.95f, 0.2f));
-            Gizmos.DrawSphere(modulePos.position, 0.1f);
+            Gizmos.DrawWireCube(modulePos.GlobalPosition, new Vector3(1.95f, 1.95f, 0.2f));
+            Gizmos.DrawSphere(modulePos.GlobalPosition, 0.1f);
         }
     }
 
     private void Update () {
         if (Input.GetKeyDown(KeyCode.M)) {
-            Instantiate(modulePrefab);
+            Instantiate(modulePrefab, Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z)), Quaternion.Euler(-90, 0, 0));
         }
     }
 
-}
-
-public class ModulePosition {
-
-    public Vector2Int gridPos = Vector2Int.zero;
-    public Vector3 position = Vector3.zero;
-    public bool hasModule = false;
-    public bool locked = false;
-
-    public ModulePosition ( Vector2Int gridPos, Vector3 position, bool locked = false ) {
-        this.gridPos = gridPos;
-        this.position = position;
-        this.locked = locked;
-    }
 }

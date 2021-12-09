@@ -21,6 +21,7 @@
     "url": "https://github.com/ScrambledFox/icc/issues"
   },
   "homepage": "https://github.com/ScrambledFox/icc#readme",
+  "type": "module",
   "dependencies": {
     "node": "^17.2.0",
     "oocsi": "0.0.3",

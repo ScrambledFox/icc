@@ -12,6 +12,8 @@ public class ModuleMovement : MonoBehaviour {
     new Rigidbody rigidbody;
     Module module;
 
+    public Vector2 Position { get => position; }
+
     private void Awake () {
         position = this.transform.position;
         rigidbody = this.transform.GetComponent<Rigidbody>();
@@ -20,17 +22,19 @@ public class ModuleMovement : MonoBehaviour {
 
     private void OnMouseDown () {
         dragHandleOffset = this.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z));
+
+        Camera.main.GetComponent<CameraControl>().ResetOrbitPosition();
     }
 
     private void OnMouseDrag () {
         point = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z));
 
-        if (module.isLocked) {
-            rigidbody.MovePosition(module.pos.position);
+        // Try to disconnect if distance is too great.
+        if (module.IsConnected) {
+            rigidbody.MovePosition(module.ModulePosition.GlobalPosition);
 
-            if (Vector3.Distance(point, module.pos.position - new Vector3(dragHandleOffset.x, dragHandleOffset.y, 0)) > 0.7f) {
-                MainScreen.INSTANCE.CheckNeighbours();
-                MainScreen.INSTANCE.UnlockModule(module);
+            if (Vector3.Distance(point, module.ModulePosition.GlobalPosition - new Vector3(dragHandleOffset.x, dragHandleOffset.y, 0)) > 0.7f) {
+                module.Disconnect();
             }
 
             return;
@@ -39,18 +43,11 @@ public class ModuleMovement : MonoBehaviour {
         position = dragHandleOffset + new Vector2(point.x, point.y);
         Vector3 targetPosition = new Vector3(position.x, position.y, 0);
 
-        foreach (var pos in MainScreen.INSTANCE.modulePositions) {
-            if (this.module.pos == pos) {
-                targetPosition = pos.position;
-                break;
-            }
-
-            if (pos.locked || pos.hasModule) continue;
-
-            if (Vector3.Distance(targetPosition, pos.position) < 0.5f) {
-                targetPosition = pos.position;
-                MainScreen.INSTANCE.LockModule(this.GetComponent<Module>(), pos);
-                MainScreen.INSTANCE.CheckNeighbours();
+        // Check if we can connect to any...
+        foreach (var pos in MainScreen.INSTANCE.grid) {
+            if (this.module.CanConnect(pos)) {
+                targetPosition = pos.GlobalPosition;
+                this.GetComponent<Module>().Connect(pos);
                 break;
             }
         }
@@ -59,14 +56,20 @@ public class ModuleMovement : MonoBehaviour {
     }
 
     private void Update () {
+        if (module.IsConnected) {
+            rigidbody.MovePosition(module.ModulePosition.GlobalPosition);
+        }
+
         // Clamp Position
         this.transform.position = Vector3.ClampMagnitude(this.transform.position, 10);
     }
 
     private void OnDrawGizmos () {
-        Gizmos.color = Color.blue;
+        Gizmos.color = Color.red;
+        if (module.ModulePosition != null) Gizmos.DrawSphere(module.ModulePosition.GlobalPosition, 0.5f);
 
-        if (module.pos != null) Gizmos.DrawSphere(module.pos.position - new Vector3(dragHandleOffset.x, dragHandleOffset.y, 0), 0.5f);
+        Gizmos.color = Color.blue;
+        if (module.ModulePosition != null) Gizmos.DrawSphere(module.ModulePosition.GlobalPosition - new Vector3(dragHandleOffset.x, dragHandleOffset.y, 0), 0.5f);
         
         Gizmos.color = Color.white;
         if (point != null) Gizmos.DrawSphere(point, 0.5f);

@@ -20,11 +20,37 @@ MonoBehaviour:
     height: 1037
   m_ShowMode: 4
   m_Title: Game
-  m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 392}
+  m_RootView: {fileID: 3}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: AnimatorControllerTool
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 800
+    y: 0
+    width: 844
+    height: 987
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 18}
+  m_Panes:
+  - {fileID: 18}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,9 +63,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 3}
-  - {fileID: 5}
   - {fileID: 4}
+  - {fileID: 6}
+  - {fileID: 5}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -52,7 +78,7 @@ MonoBehaviour:
   m_TopViewHeight: 30
   m_UseBottomView: 1
   m_BottomViewHeight: 20
---- !u!114 &3
+--- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,10 +100,10 @@ MonoBehaviour:
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LoadedToolbars:
-  - {fileID: 19}
-  m_MainToolbar: {fileID: 19}
+  - {fileID: 22}
+  m_MainToolbar: {fileID: 22}
   m_LastLoadedLayoutName: 
---- !u!114 &4
+--- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,31 +124,6 @@ MonoBehaviour:
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
---- !u!114 &5
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Children:
-  - {fileID: 6}
-  - {fileID: 11}
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 30
-    width: 1920
-    height: 987
-  m_MinSize: {x: 677, y: 342}
-  m_MaxSize: {x: 12002, y: 8042}
-  vertical: 0
-  controlID: 104
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -137,17 +138,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 7}
-  - {fileID: 10}
+  - {fileID: 2}
+  - {fileID: 12}
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1567
+    y: 30
+    width: 1920
     height: 987
-  m_MinSize: {x: 402, y: 342}
-  m_MaxSize: {x: 8002, y: 8042}
-  vertical: 1
-  controlID: 105
+  m_MinSize: {x: 781, y: 342}
+  m_MaxSize: {x: 16006, y: 8042}
+  vertical: 0
+  controlID: 69
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -162,18 +164,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 8}
-  - {fileID: 9}
+  - {fileID: 11}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1567
-    height: 746
-  m_MinSize: {x: 402, y: 221}
-  m_MaxSize: {x: 8002, y: 4021}
-  vertical: 0
-  controlID: 106
+    width: 800
+    height: 987
+  m_MinSize: {x: 403, y: 342}
+  m_MaxSize: {x: 8003, y: 8042}
+  vertical: 1
+  controlID: 70
 --- !u!114 &8
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 9}
+  - {fileID: 10}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 800
+    height: 716
+  m_MinSize: {x: 403, y: 221}
+  m_MaxSize: {x: 8003, y: 4021}
+  vertical: 0
+  controlID: 71
+--- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,16 +217,16 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 313
-    height: 746
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 13}
+    width: 201
+    height: 716
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 16}
   m_Panes:
-  - {fileID: 13}
+  - {fileID: 16}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &9
+--- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,20 +241,20 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 313
+    x: 201
     y: 0
-    width: 1254
-    height: 746
+    width: 599
+    height: 716
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 14}
+  m_ActualView: {fileID: 17}
   m_Panes:
-  - {fileID: 14}
-  - {fileID: 12}
+  - {fileID: 17}
   - {fileID: 15}
+  - {fileID: 14}
   m_Selected: 0
   m_LastSelected: 1
---- !u!114 &10
+--- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,18 +270,19 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 746
-    width: 1567
-    height: 241
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 17}
+    y: 716
+    width: 800
+    height: 271
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 20}
   m_Panes:
-  - {fileID: 16}
-  - {fileID: 17}
+  - {fileID: 19}
+  - {fileID: 20}
+  - {fileID: 13}
   m_Selected: 1
   m_LastSelected: 0
---- !u!114 &11
+--- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,23 +292,426 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
+  m_Name: InspectorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1567
+    x: 1644
     y: 0
-    width: 353
+    width: 276
     height: 987
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 18}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 21}
   m_Panes:
-  - {fileID: 18}
+  - {fileID: 21}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &12
+--- !u!114 &13
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12071, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Animation
+    m_Image: {fileID: -8166618308981325432, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 1920
+    y: 793
+    width: 1008
+    height: 246
+  m_ViewDataDictionary: {fileID: 0}
+  m_LockTracker:
+    m_IsLocked: 0
+  m_LastSelectedObjectID: -220244
+--- !u!114 &14
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 139222468, guid: 8dc1be91775c4bb469f6b74cef450eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: NuGet
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 2121
+    y: 73
+    width: 609
+    height: 626
+  m_ViewDataDictionary: {fileID: 0}
+  hasRefreshed: 1
+  availablePackages:
+  - Id: WebSocketSharp-netstandard
+    Version: 1.0.1
+    Title: WebSocketSharp-netstandard
+    Description: 'websocket-sharp provides the WebSocket protocol client and server.
+
+
+      It
+      supports:
+
+      - RFC 6455
+
+      - WebSocket Client and Server
+
+      - Per-message
+      Compression extension
+
+      - Secure Connection
+
+      - HTTP Authentication
+      (Basic/Digest)
+
+      - Query String, Origin header and Cookies
+
+      - Connecting
+      through the HTTP Proxy server
+
+      - .NET 3.5 or later (includes compatible)'
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: https://github.com/PingmanTools/websocket-sharp/blob/master/LICENSE.txt
+    DownloadUrl: https://www.nuget.org/api/v2/package/WebSocketSharp-netstandard/1.0.1
+    DownloadCount: 355670
+    Authors: sta
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/PingmanTools/websocket-sharp/
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: websocketsharp.core
+    Version: 1.0.0
+    Title: websocket-sharp core
+    Description: A websocket-sharp library port to .net standart 2.0
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: 
+    DownloadUrl: https://www.nuget.org/api/v2/package/websocketsharp.core/1.0.0
+    DownloadCount: 277628
+    Authors: websocket-sharp-core
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/ImoutoChan/websocket-sharp-core
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: SIPSorcery.WebSocketSharp
+    Version: 0.0.1
+    Title: SIPSorcery.WebSocketSharp
+    Description: A C# implementation of the WebSocket protocol client and server
+    Summary: 
+    ReleaseNotes: '- Forked from original repo to make .NET Standard 2.0 conformant,
+      apply bug fixes, create nuget package and other general updates.'
+    LicenseUrl: https://www.nuget.org/packages/SIPSorcery.WebSocketSharp/0.0.1/license
+    DownloadUrl: https://www.nuget.org/api/v2/package/SIPSorcery.WebSocketSharp/0.0.1
+    DownloadCount: 117753
+    Authors: sta.blockhead & Contributors
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/sipsorcery/websocket-sharp
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: WebSocketSharp-NonPreRelease
+    Version: 1.0.0
+    Title: WebSocketSharp-NonPreRelease
+    Description: This is the dll found in 1.0.3-rc11 of the original project, although
+      it is not flagged as prerelease by NuGet which should allow using it as a dependency
+      without flagging your own library as a pre release.
+    Summary: 
+    ReleaseNotes: This is the dll found in 1.0.3-rc11 of the original project, although
+      it is not flagged as prerelease by NuGet which should allow using it as a dependency
+      without flagging your own library as a pre release.
+    LicenseUrl: https://raw.github.com/sta/websocket-sharp/master/LICENSE.txt
+    DownloadUrl: https://www.nuget.org/api/v2/package/WebSocketSharp-NonPreRelease/1.0.0
+    DownloadCount: 188637
+    Authors: sta, swiftyspiffy (cole)
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/sta/websocket-sharp
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: System.Net.WebSockets.Client.Managed
+    Version: 1.0.22
+    Title: System.Net.WebSockets.Client.Managed
+    Description: Microsoft's managed implementation of System.Net.WebSockets.ClientWebSocket
+      tweaked for use on Windows 7 and .NET 4.5
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: https://github.com/PingmanTools/System.Net.WebSockets.Client.Managed/blob/master/LICENSE
+    DownloadUrl: https://www.nuget.org/api/v2/package/System.Net.WebSockets.Client.Managed/1.0.22
+    DownloadCount: 478322
+    Authors: Microsoft, Matthew Little
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/PingmanTools/System.Net.WebSockets.Client.Managed/
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: WebSocketSharp.Standard
+    Version: 1.0.3
+    Title: WebSocketSharp.Standard
+    Description: 'websocket-sharp provides the WebSocket protocol client and server.
+
+      It
+      supports:
+
+      - RFC 6455
+
+      - WebSocket Client and Server
+
+      - Per-message
+      Compression extension
+
+      - Secure Connection
+
+      - HTTP Authentication
+      (Basic/Digest)
+
+      - Query String, Origin header and Cookies
+
+      - Connecting
+      through the HTTP Proxy server
+
+      - .NET 3.5 or later (includes compatible)'
+    Summary: 
+    ReleaseNotes: 'The MIT License (MIT)
+
+
+      Copyright (c) 2010-2019 sta.blockhead
+
+
+      Permission
+      is hereby granted, free of charge, to any person obtaining a copy
+
+      of
+      this software and associated documentation files (the "Software"), to deal
+
+      in
+      the Software without restriction, including without limitation the rights
+
+      to
+      use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+
+      copies
+      of the Software, and to permit persons to whom the Software is
+
+      furnished
+      to do so, subject to the following conditions:
+
+
+      The above copyright
+      notice and this permission notice shall be included in
+
+      all copies or
+      substantial portions of the Software.
+
+
+      THE SOFTWARE IS PROVIDED "AS
+      IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+
+      IMPLIED, INCLUDING BUT
+      NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+
+      FITNESS FOR A PARTICULAR
+      PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+
+      AUTHORS OR COPYRIGHT
+      HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+
+      LIABILITY, WHETHER
+      IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+
+      OUT OF OR
+      IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+
+      THE
+      SOFTWARE.'
+    LicenseUrl: https://github.com/sta/websocket-sharp/blob/master/LICENSE.txt
+    DownloadUrl: https://www.nuget.org/api/v2/package/WebSocketSharp.Standard/1.0.3
+    DownloadCount: 17569
+    Authors: websocket-sharp-standard
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/chenzuo/websocket-sharp
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: WebSocketSharp.CustomHeaders.Standard
+    Version: 1.0.2
+    Title: WebSocketSharp.CustomHeaders.Standard
+    Description: See https://www.nuget.org/packages/WebSocketSharp for more info.
+    Summary: 
+    ReleaseNotes: Port to the .NET Standard 2.0.
+    LicenseUrl: https://github.com/Nihlus/websocket-sharp/blob/master/LICENSE.txt
+    DownloadUrl: https://www.nuget.org/api/v2/package/WebSocketSharp.CustomHeaders.Standard/1.0.2
+    DownloadCount: 12653
+    Authors: jax, felixhao28, sta
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/Nihlus/websocket-sharp
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: SlackAPI.WebSocketSharp
+    Version: 1.0.5.4
+    Title: SlackAPI.WebSocketSharp
+    Description: A Mono-compatible fork of SlackAPI, using the WebSocketSharp library
+      instead of System.Net.Websockets
+    Summary: The MIT License (MIT)
+    ReleaseNotes: 
+    LicenseUrl: http://choosealicense.com/licenses/mit/
+    DownloadUrl: https://www.nuget.org/api/v2/package/SlackAPI.WebSocketSharp/1.0.5.4
+    DownloadCount: 4790
+    Authors: Inumedia, Baggykiin
+    Icon: {fileID: 0}
+    ProjectUrl: 
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: WebSocketSharpFork
+    Version: 1.0.4.0
+    Title: WebSocketSharpFork
+    Description: A C# implementation of the WebSocket protocol client and server
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: https://raw.githubusercontent.com/sta/websocket-sharp/master/LICENSE.txt
+    DownloadUrl: https://www.nuget.org/api/v2/package/WebSocketSharpFork/1.0.4
+    DownloadCount: 225664
+    Authors: sta
+    Icon: {fileID: 0}
+    ProjectUrl: http://sta.github.io/websocket-sharp/
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: WebSocketSharp.NetCore
+    Version: 1.0.0
+    Title: WebSocketSharp .NET Core
+    Description: Package Description
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: https://www.nuget.org/packages/WebSocketSharp.NetCore/1.0.0/license
+    DownloadUrl: https://www.nuget.org/api/v2/package/WebSocketSharp.NetCore/1.0.0
+    DownloadCount: 3670
+    Authors: sta, nozomi-ai
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/nozomi-ai/websocket-sharp
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: websocketsharp-supportipv6
+    Version: 0.0.1.2
+    Title: websocketsharp-supportipv6
+    Description: Package Description
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: 
+    DownloadUrl: https://www.nuget.org/api/v2/package/websocketsharp-supportipv6/0.0.1.2
+    DownloadCount: 1579
+    Authors: websocketsharp
+    Icon: {fileID: 0}
+    ProjectUrl: 
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: WebSocketSharp.CustomHeaders.CustomHttpServer
+    Version: 1.0.2.3
+    Title: WebSocketSharp.CustomHeaders.CustomHttpServer
+    Description: See https://www.nuget.org/packages/WebSocketSharp for more info.
+    Summary: 
+    ReleaseNotes: Add IsDisconnected property to HttpListenerResponse.
+    LicenseUrl: https://github.com/uhm0311/websocket-sharp/blob/master/LICENSE.txt
+    DownloadUrl: https://www.nuget.org/api/v2/package/WebSocketSharp.CustomHeaders.CustomHttpServer/1.0.2.3
+    DownloadCount: 4890
+    Authors: jax, felixhao28, sta
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/uhm0311/websocket-sharp
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: Discord.Addons.WebSocketSharp
+    Version: 1.0.1
+    Title: Discord.Addons.WebSocketSharp
+    Description: websocket-sharp-based provider for Discord.Net, allowing it to run
+      under Mono.
+    Summary: 
+    ReleaseNotes: Initial release.
+    LicenseUrl: https://www.gnu.org/licenses/lgpl-3.0.en.html
+    DownloadUrl: https://www.nuget.org/api/v2/package/Discord.Addons.WebSocketSharp/1.0.1
+    DownloadCount: 1432
+    Authors: Jarl Gullberg
+    Icon: {fileID: 0}
+    ProjectUrl: 
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: Xposure.WebSocketSharp
+    Version: 5.0.0
+    Title: Xposure.WebSocketSharp
+    Description: 'QuantConnect LEAN Engine: Algorithm Project - Core QCAlgorithm
+      implementation'
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: 
+    DownloadUrl: https://www.nuget.org/api/v2/package/Xposure.WebSocketSharp/5.0.0
+    DownloadCount: 759
+    Authors: QuantConnect Team and Community Contributors
+    Icon: {fileID: 0}
+    ProjectUrl: 
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: better-websocket-sharp
+    Version: 1.0.2.1
+    Title: A C# implementation of the WebSocket protocol client and server
+    Description: A C# implementation of the WebSocket protocol client and server
+    Summary: A C# implementation of the WebSocket protocol client and server
+    ReleaseNotes: 
+    LicenseUrl: https://www.nuget.org/packages/better-websocket-sharp/1.0.2.1/license
+    DownloadUrl: https://www.nuget.org/api/v2/package/better-websocket-sharp/1.0.2.1
+    DownloadCount: 3015
+    Authors: iLinked, sta
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/sta/websocket-sharp
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  updatePackages: []
+  numberToSkip: 0
+  defaultIcon: {fileID: 2800000, guid: eec19781926cd2248b7c9abfde8db555, type: 3}
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -300,25 +731,25 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 2233
+    x: 2121
     y: 73
-    width: 1252
-    height: 725
+    width: 597
+    height: 695
   m_ViewDataDictionary: {fileID: 0}
   m_SerializedViewNames: []
   m_SerializedViewValues: []
   m_PlayModeViewName: GameView
-  m_ShowGizmos: 1
+  m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1252, y: 704}
+  m_TargetSize: {x: 597, y: 336}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
   m_MaximizeOnPlay: 0
   m_UseMipMap: 0
   m_VSyncEnabled: 0
-  m_Gizmos: 1
+  m_Gizmos: 0
   m_Stats: 0
   m_SelectedSizes: 01000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
@@ -326,10 +757,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -626
-    m_HBaseRangeMax: 626
-    m_VBaseRangeMin: -352
-    m_VBaseRangeMax: 352
+    m_HBaseRangeMin: -298.5
+    m_HBaseRangeMax: 298.5
+    m_VBaseRangeMin: -168
+    m_VBaseRangeMax: 168
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -347,29 +778,29 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 1252
-      height: 704
+      width: 597
+      height: 674
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 626, y: 352}
+    m_Translation: {x: 298.5, y: 337}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -626
-      y: -352
-      width: 1252
-      height: 704
+      x: -298.5
+      y: -337
+      width: 597
+      height: 674
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1252, y: 725}
+  m_LastWindowPixelSize: {x: 597, y: 695}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &13
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -391,15 +822,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1920
     y: 73
-    width: 312
-    height: 725
+    width: 200
+    height: 695
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      scrollPos: {x: 0, y: 46}
+      m_SelectedIDs: f68cfeff
       m_LastClickedID: 0
-      m_ExpandedIDs: d2acffffaed3ffffeee6fffff6e6ffff42e8ffff54f7ffff5cf7ffff60f7ffff82faffff
+      m_ExpandedIDs: aca3fcffcaa3fcffe8a3fcff16f2fcff26f2fcff70f2fcff88f2fcffa0f2fcffd0f2fcffecf2fcff04f3fcff4cf3fcff6cf3fcff9ef3fcffeef3fcff02f4fcff0c97feffcc41ffff8e44ffffdedefffffedeffffa8dfffff4efbffff824100008c410000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -415,7 +846,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 8}
+        m_ClientGUIView: {fileID: 9}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -423,7 +854,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 28b482f7454e018458f50267d4da34ee
---- !u!114 &14
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -443,10 +874,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 2233
+    x: 2121
     y: 73
-    width: 1252
-    height: 725
+    width: 597
+    height: 695
   m_ViewDataDictionary: {fileID: 0}
   m_ShowContextualTools: 0
   m_WindowGUID: b249c129bb52bcd4d8246b5309edd047
@@ -454,14 +885,14 @@ MonoBehaviour:
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
   m_SceneLighting: 1
-  m_2DMode: 0
+  m_2DMode: 1
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -26.49614, y: -52.79787, z: -53.95807}
+    m_Target: {x: 6.807689, y: 13.472909, z: 87.674484}
     speed: 2
-    m_Value: {x: -26.49614, y: -52.79787, z: -53.95807}
+    m_Value: {x: 6.807689, y: 13.472909, z: 87.674484}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -490,38 +921,38 @@ MonoBehaviour:
       m_Size: {x: 0, y: 0}
     yGrid:
       m_Fade:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+      m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
+      m_Pivot: {x: 0, y: 0, z: 0}
+      m_Size: {x: 1, y: 1}
+    zGrid:
+      m_Fade:
         m_Target: 1
         speed: 2
         m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
-    zGrid:
-      m_Fade:
-        m_Target: 0
-        speed: 2
-        m_Value: 0
-      m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
-      m_Pivot: {x: 0, y: 0, z: 0}
-      m_Size: {x: 0, y: 0}
     m_ShowGrid: 1
     m_GridAxis: 1
     m_gridOpacity: 0.49
   m_Rotation:
-    m_Target: {x: 0.040825173, y: -0.94438845, z: 0.29991218, w: 0.12855794}
+    m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: 0.040824953, y: -0.9443834, z: 0.29991058, w: 0.12855725}
+    m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 87.75935
+    m_Target: 119.01928
     speed: 2
-    m_Value: 87.75935
+    m_Value: 119.01928
   m_Ortho:
-    m_Target: 0
+    m_Target: 1
     speed: 2
-    m_Value: 0
+    m_Value: 1
   m_CameraSettings:
-    m_Speed: 0.2
-    m_SpeedNormalized: 0.089999996
+    m_Speed: 0.9652
+    m_SpeedNormalized: 0.48
     m_SpeedMin: 0.01
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -532,14 +963,14 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+  m_LastSceneViewRotation: {x: -0.006463178, y: 0.9892177, z: -0.13889796, w: -0.046032086}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &15
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -559,23 +990,23 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 2233
+    x: 2720
     y: 73
-    width: 1252
-    height: 687
+    width: 842
+    height: 966
   m_ViewDataDictionary: {fileID: 0}
   m_ViewTransforms:
     m_KeySerializationHelper:
-    - {fileID: -6706046942320579710, guid: ca2741a5f40bf8d459918ce2438e4ae8, type: 2}
+    - {fileID: 6931474980378166813, guid: 629ea91629cd91047b64535203b86867, type: 2}
     m_ValueSerializationHelper:
-    - e00: 1
+    - e00: 0.85141236
       e01: 0
       e02: 0
-      e03: 0
+      e03: -101.12381
       e10: 0
-      e11: 1
+      e11: 0.85141236
       e12: 0
-      e13: 0
+      e13: 410.87604
       e20: 0
       e21: 0
       e22: 1
@@ -585,9 +1016,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: ca2741a5f40bf8d459918ce2438e4ae8, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 629ea91629cd91047b64535203b86867, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -6706046942320579710, guid: ca2741a5f40bf8d459918ce2438e4ae8, type: 2}
+  - m_Target: {fileID: 6931474980378166813, guid: 629ea91629cd91047b64535203b86867, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -597,10 +1028,10 @@ MonoBehaviour:
   m_MiniTool: 0
   m_LockTracker:
     m_IsLocked: 0
-  m_CurrentEditor: 0
+  m_CurrentEditor: 1
   m_LayerEditor:
     m_SelectedLayerIndex: 0
---- !u!114 &16
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -621,9 +1052,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 1920
-    y: 819
-    width: 1566
-    height: 220
+    y: 789
+    width: 992
+    height: 250
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
@@ -638,23 +1069,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Universiteit\Year 3\FPB\New futures\Prototypes\Virtual\icc\front-end\IoT
     Command Center
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 4a4c0000
-    m_LastClickedID: 19530
-    m_ExpandedIDs: 00000000cc4b000000ca9a3b
+    scrollPos: {x: 0, y: 120}
+    m_SelectedIDs: 70430000
+    m_LastClickedID: 17264
+    m_ExpandedIDs: 00000000ac3d0000d05d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -670,7 +1101,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 10}
+      m_ClientGUIView: {fileID: 11}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -682,7 +1113,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 00000000ac3d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -707,10 +1138,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 4e4c0000
-    m_LastClickedInstanceID: 19534
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000000000008eb1ffff56340000
+    m_ExpandedInstanceIDs: c6230000000000008eb1ffff56340000483d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -726,7 +1157,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 10}
+      m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -738,7 +1169,7 @@ MonoBehaviour:
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 304
---- !u!114 &17
+--- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -759,11 +1190,11 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 1920
-    y: 819
-    width: 1566
-    height: 220
+    y: 789
+    width: 799
+    height: 250
   m_ViewDataDictionary: {fileID: 0}
---- !u!114 &18
+--- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -783,9 +1214,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 3487
+    x: 3564
     y: 73
-    width: 352
+    width: 275
     height: 966
   m_ViewDataDictionary: {fileID: 0}
   m_ObjectsLockedBeforeSerialization: []
@@ -800,7 +1231,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
---- !u!114 &19
+--- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

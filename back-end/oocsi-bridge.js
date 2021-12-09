@@ -1,15 +1,28 @@
 "use strict";
+import { WebSocketServer } from "ws";
+import OOCSI from "OOCSI";
 
-var OOCSI = require("OOCSI");
+const OOCSI_ID = "icc_" + Date.now().toString();
+const ws = new WebSocketServer({ port: 8080 });
 
-OOCSI.connect("wss://oocsi.id.tue.nl/ws", "icc_" + Date.now().toString());
+OOCSI.connect("wss://oocsi.id.tue.nl/ws", OOCSI_ID);
 
-// OOCSI.subscribe("unixtime", (msg) => {
-//   console.log("RECEIVED:" + msg);
-// });
+ws.on("connection", (ws) => {
+  // Say hello to unity.
+  ws.send("welcome");
 
-// setInterval(() => {
-//   let msg = { time: Date.now().toString() };
-//   OOCSI.send("unixtime", msg);
-//   console.log("SENT: " + msg.time);
-// }, 1000);
+  // On link message
+  ws.on("message", (data) => {
+    console.log("LINK: RECEIVED: " + data);
+    const obj = JSON.parse(data);
+
+    // Subscribe to channel we get a link message from.
+    OOCSI.subscribe(obj.recipient, (e) => {
+      console.log("OOCSI: RECEIVED: " + e);
+      ws.send(JSON.stringify(e));
+    });
+
+    OOCSI.send(obj.recipient, obj.data);
+    console.log("OOCSI: SENT:", obj.data, "to", obj.recipient);
+  });
+});
