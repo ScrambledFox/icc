@@ -107,8 +107,31 @@ public class MainScreen : MonoBehaviour {
     }
 
     private void Update () {
+        // Create modules.
         if (Input.GetKeyDown(KeyCode.M)) {
             Instantiate(modulePrefab, Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z)), Quaternion.Euler(-90, 0, 0));
+        }
+
+        // Deleting modules.
+        if (Input.GetKeyDown(KeyCode.Delete)) {
+            Vector3 mouseLocation = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z));
+            GameObject[] modules = GameObject.FindGameObjectsWithTag("Module");
+
+            float closestDistance = 1f;
+            int closestIndex = -1;
+            for (int i = 0; i < modules.Length; i++) {
+                float distance = Vector3.Distance(mouseLocation, modules[i].transform.position);
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestIndex = i;
+                }
+            }
+
+            if (closestIndex == -1) return;
+
+            Module module = modules[closestIndex].GetComponent<Module>();
+            if (module.IsConnected) module.Disconnect();
+            Destroy(modules[closestIndex]);
         }
     }
 

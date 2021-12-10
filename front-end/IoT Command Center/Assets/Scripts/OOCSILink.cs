@@ -29,7 +29,7 @@ public class OOCSILink : MonoBehaviour {
             string recipient = dataObj.GetValue("recipient").ToString();
             JObject data = dataObj.GetValue("data").ToObject<JObject>();
             string sender = dataObj.GetValue("sender").ToString();
-            double unixTimestamp = double.Parse(dataObj.GetValue("timestamp").ToString());
+            ulong unixTimestamp = ulong.Parse(dataObj.GetValue("timestamp").ToString());
             
             LinkMessage linkMessage = new LinkMessage(recipient, data, sender, unixTimestamp);
             Debug.Log($"MSG: {linkMessage.recipient} with {linkMessage.data.ToString()}");
@@ -37,7 +37,7 @@ public class OOCSILink : MonoBehaviour {
     }
 
     private void SendLinkMessage ( string channel, JObject message ) {
-        LinkMessage linkMessage = new LinkMessage(channel, message, "icc", (System.DateTime.UtcNow.Subtract(new System.DateTime(1970, 1, 1)).TotalMilliseconds));
+        LinkMessage linkMessage = new LinkMessage(channel, message, "icc", (ulong)(System.DateTime.UtcNow.Subtract(new System.DateTime(1970, 1, 1)).TotalMilliseconds));
         string json = JsonConvert.SerializeObject(linkMessage);
         ws.Send(json);
     }
@@ -72,11 +72,11 @@ public class OOCSILink : MonoBehaviour {
 public class LinkMessage {
 
     public string recipient;
-    public double timestamp;
+    public ulong timestamp;
     public string sender;
     public JObject data;
 
-    public LinkMessage ( string recipient, JObject data, string sender, double timestamp ) {
+    public LinkMessage ( string recipient, JObject data, string sender, ulong timestamp ) {
         this.recipient = recipient;
         this.timestamp = timestamp;
         this.sender = sender;

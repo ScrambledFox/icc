@@ -9,14 +9,12 @@ public class ModuleMovement : MonoBehaviour {
 
     Vector3 point;
 
-    new Rigidbody rigidbody;
     Module module;
 
     public Vector2 Position { get => position; }
 
     private void Awake () {
         position = this.transform.position;
-        rigidbody = this.transform.GetComponent<Rigidbody>();
         module = this.transform.GetComponent<Module>();
     }
 
@@ -31,7 +29,7 @@ public class ModuleMovement : MonoBehaviour {
 
         // Try to disconnect if distance is too great.
         if (module.IsConnected) {
-            rigidbody.MovePosition(module.ModulePosition.GlobalPosition);
+            this.transform.position = (module.ModulePosition.GlobalPosition);
 
             if (Vector3.Distance(point, module.ModulePosition.GlobalPosition - new Vector3(dragHandleOffset.x, dragHandleOffset.y, 0)) > 0.7f) {
                 module.Disconnect();
@@ -52,12 +50,12 @@ public class ModuleMovement : MonoBehaviour {
             }
         }
 
-        rigidbody.MovePosition(targetPosition);
+        this.transform.position = (targetPosition);
     }
 
     private void Update () {
         if (module.IsConnected) {
-            rigidbody.MovePosition(module.ModulePosition.GlobalPosition);
+            this.transform.position = (module.ModulePosition.GlobalPosition);
         }
 
         // Clamp Position
@@ -65,6 +63,8 @@ public class ModuleMovement : MonoBehaviour {
     }
 
     private void OnDrawGizmos () {
+        if (!Application.isPlaying) return;
+
         Gizmos.color = Color.red;
         if (module.ModulePosition != null) Gizmos.DrawSphere(module.ModulePosition.GlobalPosition, 0.5f);
 
