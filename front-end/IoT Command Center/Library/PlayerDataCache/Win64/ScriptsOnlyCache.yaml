@@ -10,6 +10,10 @@ ScriptsOnlyBuild:
     - ModuleDial
     - ModuleMovement
     - OOCSILink
+    - PopUp
+    - PopUpSpawner
+    - RenderTextureRaycast
+    - UpcomingEventSpawner
     NugetForUnity.dll:
     - NugetForUnity.NugetWindow
     Unity.Rider.Editor.dll:
@@ -19,6 +23,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshProUGUI
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -34,11 +39,19 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.ContentSizeFitter
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Mask
+    - UnityEngine.UI.RectMask2D
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
+    - UnityEngine.UI.Shadow
+    - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/EnergyCluster.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -58,6 +71,10 @@ ScriptsOnlyBuild:
     - Class: 48
       Script: {instanceID: 0}
     - Class: 49
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 64
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
@@ -84,6 +101,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1476}
     - Class: 114
+      Script: {instanceID: 1702}
+    - Class: 114
       Script: {instanceID: 1754}
     - Class: 114
       Script: {instanceID: 1898}
@@ -98,6 +117,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2446}
     - Class: 114
+      Script: {instanceID: 2488}
+    - Class: 114
       Script: {instanceID: 2530}
     - Class: 114
       Script: {instanceID: 2578}
@@ -110,6 +131,20 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2802}
     - Class: 114
+      Script: {instanceID: 2812}
+    - Class: 114
+      Script: {instanceID: 2888}
+    - Class: 114
+      Script: {instanceID: 3040}
+    - Class: 114
+      Script: {instanceID: 3144}
+    - Class: 114
+      Script: {instanceID: 3604}
+    - Class: 114
+      Script: {instanceID: 3736}
+    - Class: 114
+      Script: {instanceID: 3814}
+    - Class: 114
       Script: {instanceID: 3832}
     - Class: 114
       Script: {instanceID: 3968}
@@ -117,6 +152,14 @@ ScriptsOnlyBuild:
       Script: {instanceID: 4096}
     - Class: 114
       Script: {instanceID: 4416}
+    - Class: 114
+      Script: {instanceID: 39262}
+    - Class: 114
+      Script: {instanceID: 59870}
+    - Class: 114
+      Script: {instanceID: 83804}
+    - Class: 114
+      Script: {instanceID: 86486}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -348,7 +391,7 @@ ScriptsOnlyBuild:
     className: ModuleMovement
   - hash:
       serializedVersion: 2
-      Hash: c793499b1aeda89caf59cadd215e573b
+      Hash: 94c1ca5d695eb67033346332f8b27cc5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Flow
@@ -594,7 +637,7 @@ ScriptsOnlyBuild:
     className: ActivationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 3511212193a01797607f8d250bdbd194
+      Hash: 40e651705c6ed75e54ef6d54c7345c9a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MainScreen
@@ -610,8 +653,32 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: 5dfc1d755c07cbefdfeede7d3ec78287
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RenderTextureRaycast
+  - hash:
+      serializedVersion: 2
+      Hash: 007720970fed39b5d664b82c895cac73
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UpcomingEventSpawner
+  - hash:
+      serializedVersion: 2
+      Hash: 1a40e1d665fe492d55bfabd57e2c9dbf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PopUpSpawner
+  - hash:
+      serializedVersion: 2
+      Hash: a5bf92696a0d14365b6fd8587c956a60
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PopUp
   platform: 19
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
+  - Assets/Scenes/EnergyCluster.unity
   playerPath: D:/Universiteit/Year 3/FPB/New futures/Prototypes/Virtual/icc/front-end/IoT
     Command Center/Builds/Dev/IoT Command Center.exe

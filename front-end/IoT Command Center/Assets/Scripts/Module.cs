@@ -48,11 +48,10 @@ public class Module : MonoBehaviour {
     public void Connect ( ModulePosition modPos ) {
         this.modPos = modPos;
 
-        modPos.HasModule = true;
+        this.modPos.HasModule = true;
         this.isConnected = true;
 
-        //this.modPos.Connection?.SetAlert("notification");
-        this.modPos.Connection?.SetFlow(true);
+        //this.modPos.Connection?.SetFlow(true);
 
         audioSource.pitch = Random.Range(0.9f, 1.1f);
         audioSource.PlayOneShot(attachSound);
@@ -93,7 +92,7 @@ public class Module : MonoBehaviour {
         }
 
         this.modPos.Connection?.ResetAlert();
-        this.modPos.Connection?.SetFlow(false);
+        //this.modPos.Connection?.SetFlow(false);
 
         audioSource.pitch = Random.Range(0.8f, 1.2f);
         audioSource.PlayOneShot(detachSound);
@@ -108,19 +107,21 @@ public class Module : MonoBehaviour {
 
     private void Update () {
         if (this.modPos != null) {
-            this.modPos.Connection.Flow.Size = dial.Value * 1.5f;
-            this.modPos.Connection.Flow.SizeVariation = dial.Value * 0.75f;
-            this.modPos.Connection.Flow.Frequency = dial.Value * 2;
-            this.modPos.Connection.Flow.FrequencyVariation = dial.Value;
+            if (this.modPos.Connection != null) {
+                this.modPos.Connection.Flow.Size = dial.Value * 1.5f;
+                this.modPos.Connection.Flow.SizeVariation = dial.Value * 0.75f;
+                this.modPos.Connection.Flow.Frequency = dial.Value * 2;
+                this.modPos.Connection.Flow.FrequencyVariation = dial.Value;
 
-            if (dial.PushValue < 0.1f) {
-                if (!this.modPos.Connection.HasAlert) {
-                    
-                    this.modPos.Connection.SetAlert("pushvalue");
-                }
-            } else if (dial.PushValue > 0.9f) {
-                if (this.modPos.Connection.HasAlert) {
-                    this.modPos.Connection.ResetAlert();
+                if (dial.PushValue < 0.1f) {
+                    if (!this.modPos.Connection.HasAlert) {
+
+                        this.modPos.Connection.SetAlert("pushvalue");
+                    }
+                } else if (dial.PushValue > 0.9f) {
+                    if (this.modPos.Connection.HasAlert) {
+                        this.modPos.Connection.ResetAlert();
+                    }
                 }
             }
         }

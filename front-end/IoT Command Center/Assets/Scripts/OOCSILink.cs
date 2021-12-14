@@ -11,7 +11,7 @@ using Newtonsoft.Json.Linq;
 
 public class OOCSILink : MonoBehaviour {
 
-    WebSocket ws;
+    static WebSocket ws;
 
     private void Start () {
         ws = new WebSocket("ws://localhost:8080");
@@ -36,7 +36,11 @@ public class OOCSILink : MonoBehaviour {
         };
     }
 
-    private void SendLinkMessage ( string channel, JObject message ) {
+    public static void Subscribe ( string channel ) {
+        SendLinkMessage(channel, new JObject());
+    }
+
+    private static void SendLinkMessage ( string channel, JObject message ) {
         LinkMessage linkMessage = new LinkMessage(channel, message, "icc", (ulong)(System.DateTime.UtcNow.Subtract(new System.DateTime(1970, 1, 1)).TotalMilliseconds));
         string json = JsonConvert.SerializeObject(linkMessage);
         ws.Send(json);
@@ -59,7 +63,7 @@ public class OOCSILink : MonoBehaviour {
                 new JProperty("temperature", 21.2)
             );
 
-            this.SendLinkMessage("icc-test-channel", obj);
+            SendLinkMessage("icc-test-channel", obj);
         }
     }
 

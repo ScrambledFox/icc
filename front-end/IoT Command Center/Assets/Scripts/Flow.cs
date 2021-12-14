@@ -10,9 +10,16 @@ public class Flow : MonoBehaviour {
     private bool active = false;
     private float speed = 15.0f;
 
+    private float frequency = 1.5f;
+
     public float Size = 1f;
     public float SizeVariation = 0.25f;
-    public float Frequency = 1.5f;
+    public float Frequency { 
+        get => frequency; 
+        set { 
+            frequency = value;
+        } 
+    }
     public float FrequencyVariation = 0.5f;
 
     private float timer;
