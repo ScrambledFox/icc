@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,23 +14,40 @@ public class PopUpSpawner : MonoBehaviour {
         INSTANCE = this;
     }
 
-    public void PopUp ( string title, string time, string subtitle, string description, string leftButtonText, string rightButtonText, PopUpImportance importance ) {
+    public void CreatePopUp ( string randomId, string title, string time, string subtitle, int iconId, string description, PopUpAction? leftAction, PopUpAction? rightAction, int timeout, PopUpImportance importance ) {
+        // Dismiss all other active popups.
         Array.ForEach(FindObjectsOfType<PopUp>(), item => { item.GetComponent<Animator>().SetTrigger("dismiss"); });
         
         GameObject go = Instantiate(PopUpPrefab, this.transform);
+        go.name = randomId;
+
         PopUp popup = go.GetComponent<PopUp>();
         popup.Importance = importance;
         popup.Title = title;
         popup.Time = time;
         popup.Subtitle = subtitle;
+        popup.IconId = iconId;
         popup.Description = description;
-        popup.LeftButtonText = leftButtonText;
-        popup.RightButtonText = rightButtonText;
+        popup.LeftButton = leftAction;
+        popup.RightButton = rightAction;
+        popup.Timeout = timeout;
     }
 
     private void Update () {
         if (Input.GetKeyDown(KeyCode.P)) {
-            this.PopUp("Test PopUp", MainScreen.CurrentDateTime.ToString("t"), "Test Event", "This is a test event.", "Action 1", "Action 2", (PopUpImportance)UnityEngine.Random.Range(0, 5));
+            string randomId = "popup_" + Guid.NewGuid().ToString();
+            this.CreatePopUp(
+                randomId,
+                "Low on Coffee Beans!",
+                MainScreen.CurrentDateTime.ToString("t"),
+                "From 'Morning Coffee' Event, Tomorrow at 07:30",
+                0,
+                "Consider getting more 'Coffee Beans' to continue supporting your 'Morning Coffee' event.",
+                null,
+                new PopUpAction("OK", () => { GameObject.Find(randomId).GetComponent<Animator>().SetTrigger("dismiss"); }),
+                120,
+                PopUpImportance.LOW
+            );
         }
     }
 

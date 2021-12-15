@@ -102,14 +102,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf063cfcbe9e8924095c8efa029fd473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Size: 0.75
-  SizeVariation: 0.25
-  Frequency: 1.5
-  FrequencyVariation: 0.5
+  Size: 1.5
+  SizeVariation: 0.75
+  FrequencyVariation: 1
   targetTransform: {fileID: 0}
   Bubble: {fileID: 2617784262084020703, guid: f9c22d45c07037a41aefd140fbad0623, type: 3}
-  SideOffset: 7.5
-  MaxRandomOffset: 3
+  SideOffset: 0.5
+  MaxRandomOffset: 0.25
 --- !u!1001 &6844902364680614592
 PrefabInstance:
   m_ObjectHideFlags: 0

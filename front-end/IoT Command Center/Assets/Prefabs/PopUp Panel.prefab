@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.026e-12, y: 45.2}
+  m_AnchoredPosition: {x: 3.026e-12, y: 67}
   m_SizeDelta: {x: 507.4, y: 277.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2827332419332267432
@@ -186,7 +186,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 33.899994, y: 14.299988}
-  m_SizeDelta: {x: 325.29, y: 71.25}
+  m_SizeDelta: {x: 419.9868, y: 71.25}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &2827332420171406525
 CanvasRenderer:
@@ -235,7 +235,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 2827332420355549517}
   m_OnClick:
     m_PersistentCalls:
@@ -275,8 +275,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 390.38, y: 14.299988}
-  m_SizeDelta: {x: 340.12, y: 71.25}
+  m_AnchoredPosition: {x: 472.72552, y: 14.299988}
+  m_SizeDelta: {x: 415.3945, y: 71.25}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &2827332420245567213
 CanvasRenderer:
@@ -329,19 +329,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2827332421133374039}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2827332421273372426}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: dismiss
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &2827332420355549507
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,12 +422,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 22
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 22
   m_fontStyle: 16
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
@@ -510,7 +498,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 37, y: 249.2}
+  m_AnchoredPosition: {x: -46.450012, y: 308.1}
   m_SizeDelta: {x: 590.3, y: 49.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2827332420489543277
@@ -644,8 +632,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 37, y: 206.72}
-  m_SizeDelta: {x: 590.3, y: 35.25}
+  m_AnchoredPosition: {x: -42, y: 252.62}
+  m_SizeDelta: {x: 590.3, y: 61.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2827332420779853655
 CanvasRenderer:
@@ -675,7 +663,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upcoming Event Alert
+  m_text: Upcoming Event AlertUpcoming Event AlertUpcoming Event AlertUpcoming Event
+    AlertUpcoming Event AlertUpcoming Event AlertUpcoming Event AlertUpcoming Event
+    AlertUpcoming Event AlertUpcoming Event AlertUpcoming Event AlertUpcoming Event
+    Alert
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2b6f789e354794c49845cbceb8303c4a, type: 2}
   m_sharedMaterial: {fileID: 2910301888592973078, guid: 2b6f789e354794c49845cbceb8303c4a, type: 2}
@@ -809,7 +800,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ok
+  m_text: OK
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 18a384396160cd949a08bf22aceec37c, type: 2}
   m_sharedMaterial: {fileID: 229087508413434933, guid: 18a384396160cd949a08bf22aceec37c, type: 2}
@@ -836,12 +827,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 22
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 22
   m_fontStyle: 16
   m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
@@ -854,7 +845,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
+  m_overflowMode: 1
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
@@ -912,8 +903,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.1, y: -149.6}
-  m_SizeDelta: {x: 696.6, y: 112.1}
+  m_AnchoredPosition: {x: -6.1, y: -159.20001}
+  m_SizeDelta: {x: 696.6, y: 210.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2827332421178021351
 CanvasRenderer:
@@ -980,7 +971,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1057,10 +1048,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.00018310547, y: 0}
-  m_SizeDelta: {x: -823.4, y: -617.6}
+  m_SizeDelta: {x: 913.1, y: 679.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2827332421273372425
 CanvasRenderer:
@@ -1148,12 +1139,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Importance: 0
   PopUpSounds:
-  - {fileID: 8300000, guid: b6febcab019c50e499bc4da2a2c49ccd, type: 3}
   - {fileID: 8300000, guid: 9e80cc0da680d7b41a48c033277d2c5a, type: 3}
+  - {fileID: 8300000, guid: b6febcab019c50e499bc4da2a2c49ccd, type: 3}
   - {fileID: 8300000, guid: 89e41a2125b29184c8355ea5641e2fc2, type: 3}
   - {fileID: 8300000, guid: 17f0f0af2485938468c5138f607dd223, type: 3}
   - {fileID: 8300000, guid: 0f670898b8fb6b4458e75835e8e462a6, type: 3}
   DismissSound: {fileID: 8300000, guid: 43dd59c6da98f52439eda44f3527fb3d, type: 3}
+  iconSprites:
+  - {fileID: 21300000, guid: 427a8ad145887fc4eb9a7e5d2b031bf0, type: 3}
+  - {fileID: 21300000, guid: 25c8639ca816ca74681123e802a5a39f, type: 3}
+  - {fileID: 21300000, guid: 35c2e08a4cfe2014284882cc366d830a, type: 3}
+  - {fileID: 21300000, guid: 4e280cf80b14238408eabf4405a43e2b, type: 3}
 --- !u!1 &6791767534483474876
 GameObject:
   m_ObjectHideFlags: 0

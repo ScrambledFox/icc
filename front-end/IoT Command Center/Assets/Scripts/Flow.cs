@@ -8,7 +8,7 @@ public class Flow : MonoBehaviour {
     private Vector3 target;
 
     private bool active = false;
-    private float speed = 15.0f;
+    private float speed = 1.0f;
 
     private float frequency = 1.5f;
 
@@ -56,7 +56,7 @@ public class Flow : MonoBehaviour {
             if (timer > 0) {
                 timer -= Time.deltaTime;
             } else {
-                Vector3 startSource = source + (source - target).normalized * 15f;
+                Vector3 startSource = source + (source - target).normalized * SideOffset;
                 Vector3 sideways = Vector3.Cross(transform.forward, startSource);
 
                 float offset = SideOffset * (lastOffsetSide ? 1 : -1);
@@ -65,7 +65,7 @@ public class Flow : MonoBehaviour {
                 lastOffsetSide = !lastOffsetSide;
 
                 GameObject bubble = Instantiate(Bubble, startSource, Quaternion.identity, this.transform);
-                bubble.GetComponent<Bubble>().Go(startSource, target + sideways.normalized * (offset * 0.25f), Mathf.Max(0, Size - SizeVariation), Mathf.Max(0, Size + SizeVariation), speed);
+                bubble.GetComponent<Bubble>().Go(startSource, new Vector3(target.x, target.y, startSource.z), Mathf.Max(0, Size - SizeVariation), Mathf.Max(0, Size + SizeVariation), speed);
                 timer = 1 / Mathf.Max(0.01f, (Frequency + Random.Range(-FrequencyVariation, FrequencyVariation)));
             }
         }

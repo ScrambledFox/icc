@@ -8,6 +8,8 @@ const ws = new WebSocketServer({ port: 8080 });
 OOCSI.connect("wss://oocsi.id.tue.nl/ws", OOCSI_ID);
 
 ws.on("connection", (ws, req) => {
+  let subscriptions = [];
+
   // Say hello to unity.
   console.log("AtHome connected.");
   ws.send("welcome");
@@ -19,6 +21,7 @@ ws.on("connection", (ws, req) => {
 
     // Subscribe to channel we get a link message from.
     console.log("Subscribing to", obj.recipient);
+    subscriptions.push(obj.recipient);
     OOCSI.subscribe(obj.recipient, (e) => {
       console.log("OOCSI: RECEIVED: " + e);
       ws.send(JSON.stringify(e));
@@ -31,7 +34,12 @@ ws.on("connection", (ws, req) => {
   ws.on("close", () => {
     console.log("Server closed for some reason.");
 
-    OOCSI.unsubscribe();
+    subscriptions.forEach((sub) => {
+      console.log("Unsubscribing from", sub);
+      OOCSI.unsubscribe(sub);
+    });
+
+    subscriptions = [];
   });
 
   ws.on("error", (err) => {

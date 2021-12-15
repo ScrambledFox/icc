@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-
 public class MainScreen : MonoBehaviour {
 
     public static MainScreen INSTANCE = null;
@@ -20,7 +19,8 @@ public class MainScreen : MonoBehaviour {
     public Connection[] Connections;
 
     public bool FollowCurrentTime = true;
-    public int year, month, day, hour, minute, second;
+    public int Year, Month, Day, Hour, Minute, Second;
+    public float TimeAcceleration = 1.0f;
     public static DateTime CurrentDateTime = DateTime.Now;
 
     public Vector2Int gridSize = new Vector2Int(11, 12);
@@ -28,7 +28,7 @@ public class MainScreen : MonoBehaviour {
     private void Awake () {
         INSTANCE = this;
 
-        CurrentDateTime = FollowCurrentTime ? DateTime.Now : new DateTime(year, month, day, hour, minute, second);
+        CurrentDateTime = FollowCurrentTime ? DateTime.Now : new DateTime(Year, Month, Day, Hour, Minute, Second);
 
         timeDateText = GameObject.Find("TimeDate").transform;
         timeText = timeDateText.Find("Time").GetComponent<TextMeshProUGUI>();
@@ -54,18 +54,6 @@ public class MainScreen : MonoBehaviour {
         }
 
         UpcomingEventSpawner eventSpawner = FindObjectOfType<UpcomingEventSpawner>();
-        eventSpawner.AddUpcomingEvent("Test", "Not on sundays", "18:22");
-        eventSpawner.AddUpcomingEvent("Test", "Not on sundays", "18:43");
-        eventSpawner.AddUpcomingEvent("Test", "Not on sundays", "19:02");
-        eventSpawner.AddUpcomingEvent("Test", "Not on sundays", "19:46");
-        eventSpawner.AddUpcomingEvent("Test", "Not on sundays", "20:25");
-        eventSpawner.AddUpcomingEvent("Test", "Not on sundays", "22:48");
-        eventSpawner.AddUpcomingEvent("Test", "Not on sundays", "18:22");
-        eventSpawner.AddUpcomingEvent("Test", "Not on sundays", "18:43");
-        eventSpawner.AddUpcomingEvent("Test", "Not on sundays", "19:02");
-        eventSpawner.AddUpcomingEvent("Test", "Not on sundays", "19:46");
-        eventSpawner.AddUpcomingEvent("Test", "Not on sundays", "20:25");
-        eventSpawner.AddUpcomingEvent("Test", "Not on sundays", "22:48");
     }
 
     private Connection GetClosestConnectionGraphic ( Vector3 pos ) {
@@ -141,7 +129,7 @@ public class MainScreen : MonoBehaviour {
         if (FollowCurrentTime) {
             CurrentDateTime = DateTime.Now;
         } else {
-            CurrentDateTime = CurrentDateTime.AddSeconds(Time.deltaTime);
+            CurrentDateTime = CurrentDateTime.AddSeconds(Time.deltaTime * TimeAcceleration);
         }
 
         // Create modules.
@@ -171,6 +159,16 @@ public class MainScreen : MonoBehaviour {
             Module module = modules[closestIndex].GetComponent<Module>();
             if (module.IsConnected) module.Disconnect();
             Destroy(modules[closestIndex]);
+        }
+
+        if (Input.GetKeyDown(KeyCode.C)) {
+            GameObject.Find("EventBG").transform.localPosition = new Vector3(0, 0, 0);
+
+            foreach (var modPair in modulesDictionary) {
+                if (modPair.Key.Connection != null) {
+                    modPair.Key.Connection.SetFlow(true);
+                }
+            }
         }
 
         // Update Time

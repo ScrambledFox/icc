@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - Bubble
     - CameraControl
+    - CarCharger
     - Connection
     - Flow
     - MainScreen
@@ -10,9 +11,12 @@ ScriptsOnlyBuild:
     - ModuleDial
     - ModuleMovement
     - OOCSILink
+    - OOCSIStateOverlay
     - PopUp
     - PopUpSpawner
     - RenderTextureRaycast
+    - SceneManager
+    - ThreadHelper
     - UpcomingEventSpawner
     NugetForUnity.dll:
     - NugetForUnity.NugetWindow
@@ -45,6 +49,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.Mask
+    - UnityEngine.UI.RawImage
     - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Scrollbar
@@ -111,55 +116,65 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2080}
     - Class: 114
-      Script: {instanceID: 2332}
+      Script: {instanceID: 2164}
     - Class: 114
-      Script: {instanceID: 2388}
+      Script: {instanceID: 2202}
     - Class: 114
-      Script: {instanceID: 2446}
+      Script: {instanceID: 2334}
     - Class: 114
-      Script: {instanceID: 2488}
+      Script: {instanceID: 2390}
     - Class: 114
-      Script: {instanceID: 2530}
+      Script: {instanceID: 2448}
     - Class: 114
-      Script: {instanceID: 2578}
+      Script: {instanceID: 2470}
     - Class: 114
-      Script: {instanceID: 2616}
+      Script: {instanceID: 2492}
     - Class: 114
-      Script: {instanceID: 2696}
+      Script: {instanceID: 2534}
     - Class: 114
-      Script: {instanceID: 2794}
+      Script: {instanceID: 2582}
+    - Class: 114
+      Script: {instanceID: 2620}
+    - Class: 114
+      Script: {instanceID: 2630}
+    - Class: 114
+      Script: {instanceID: 2702}
+    - Class: 114
+      Script: {instanceID: 2790}
     - Class: 114
       Script: {instanceID: 2802}
     - Class: 114
-      Script: {instanceID: 2812}
+      Script: {instanceID: 2810}
     - Class: 114
-      Script: {instanceID: 2888}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 3040}
+      Script: {instanceID: 2896}
     - Class: 114
-      Script: {instanceID: 3144}
+      Script: {instanceID: 3048}
     - Class: 114
-      Script: {instanceID: 3604}
+      Script: {instanceID: 3054}
     - Class: 114
-      Script: {instanceID: 3736}
+      Script: {instanceID: 3110}
     - Class: 114
-      Script: {instanceID: 3814}
+      Script: {instanceID: 3156}
     - Class: 114
-      Script: {instanceID: 3832}
+      Script: {instanceID: 3602}
     - Class: 114
-      Script: {instanceID: 3968}
+      Script: {instanceID: 3618}
     - Class: 114
-      Script: {instanceID: 4096}
+      Script: {instanceID: 3750}
     - Class: 114
-      Script: {instanceID: 4416}
+      Script: {instanceID: 3828}
     - Class: 114
-      Script: {instanceID: 39262}
+      Script: {instanceID: 3846}
     - Class: 114
-      Script: {instanceID: 59870}
+      Script: {instanceID: 3982}
     - Class: 114
-      Script: {instanceID: 83804}
+      Script: {instanceID: 4110}
     - Class: 114
-      Script: {instanceID: 86486}
+      Script: {instanceID: 4430}
+    - Class: 114
+      Script: {instanceID: 25430}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -289,6 +304,12 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ThreadHelper
+  - hash:
+      serializedVersion: 2
       Hash: a1aa98c78061c6f03a8c124cda576e67
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -331,6 +352,12 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
+      Hash: 1a40e1d665fe492d55bfabd57e2c9dbf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PopUpSpawner
+  - hash:
+      serializedVersion: 2
       Hash: 760787567e1b60d64a3e421ab83ee14a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -361,6 +388,12 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CarCharger
+  - hash:
+      serializedVersion: 2
       Hash: f40fedccd4adbc76605bea6d67537e4b
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -389,6 +422,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ModuleMovement
+  - hash:
+      serializedVersion: 2
+      Hash: 5dfc1d755c07cbefdfeede7d3ec78287
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RenderTextureRaycast
   - hash:
       serializedVersion: 2
       Hash: 94c1ca5d695eb67033346332f8b27cc5
@@ -451,10 +490,22 @@ ScriptsOnlyBuild:
     className: ContentSizeFitter
   - hash:
       serializedVersion: 2
+      Hash: 03ba1ee5362ca33d839c12cfbe9c483e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PopUp
+  - hash:
+      serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Outline
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SceneManager
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -547,6 +598,12 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
+      Hash: 007720970fed39b5d664b82c895cac73
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UpcomingEventSpawner
+  - hash:
+      serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -637,7 +694,7 @@ ScriptsOnlyBuild:
     className: ActivationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 40e651705c6ed75e54ef6d54c7345c9a
+      Hash: 6b52e61dd907a9860cec0bc422aa8c62
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MainScreen
@@ -655,28 +712,10 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: 5dfc1d755c07cbefdfeede7d3ec78287
+      Hash: 1b64ce2c0495c53093f2d3ed1ce5e5b0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: RenderTextureRaycast
-  - hash:
-      serializedVersion: 2
-      Hash: 007720970fed39b5d664b82c895cac73
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: UpcomingEventSpawner
-  - hash:
-      serializedVersion: 2
-      Hash: 1a40e1d665fe492d55bfabd57e2c9dbf
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PopUpSpawner
-  - hash:
-      serializedVersion: 2
-      Hash: a5bf92696a0d14365b6fd8587c956a60
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PopUp
+    className: OOCSIStateOverlay
   platform: 19
   scenePathNames:
   - Assets/Scenes/EnergyCluster.unity
